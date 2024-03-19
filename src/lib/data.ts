@@ -2,6 +2,8 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
+import { FaMedal } from "react-icons/fa";
+
 import corpcommentImg from "/public/corpcomment.png";
 import lowpolyracingImg from "/public/lowpolyracing.png";
 import covidboardImg from "/public/covidboard.png";
@@ -33,6 +35,10 @@ export const links = [
 		name: "Experience",
 		hash: "#experience",
 	},
+	{
+		name: "Achievements",
+		hash: "#achievements",
+	},
 ] as const;
 
 export const experiencesData = [
@@ -63,6 +69,46 @@ export const experiencesData = [
 		description: "I work as a full-stack developer for Note-Bridge in order to create a functional website and help start the journey of the company and contribute to its growth. The team and I are working on different goals and deadlines to help the company succeed in the future.",
 		icon: React.createElement(CgWorkAlt),
 		date: "2023-present",
+	},
+] as const;
+
+export const achievementsData = [
+	{
+		title: "Electric Guitar - University of West London - Grade 1",
+		location: "London, UK",
+		description: "Achieved Grade 1 in Electric Guitar from the University of West London, demonstrating musical skill and dedication.",
+		icon: React.createElement(FaMedal),
+		date: "2019",
+	},
+	{
+		title: "Video Editor and Designer",
+		location: "Various",
+		description: "Designed and edited graduation videos, national celebrations, bazaars, and public events, showcasing talent in video production.",
+		icon: React.createElement(FaMedal),
+		date: "Various",
+	},
+
+	{
+		title: "Game Development World Championship 2020: 2nd Place in Fan Favourite Category",
+		location: "Global",
+		description: "Secured 2nd place in the Fan Favourite Category at the Game Development World Championship 2020, showcasing creativity and engagement.",
+		icon: React.createElement(FaMedal),
+		date: "2020",
+	},
+	{
+		title: "University of Twente Module 4: Best Note-Bridge Project Certificate",
+		location: "Enschede, Netherlands",
+		description: "Awarded for the best project in Module 4 at the University of Twente, demonstrating exceptional skill and innovation.",
+		icon: React.createElement(FaMedal),
+		date: "2023",
+	},
+
+	{
+		title: "Athlete in the Aloha Triathlon Association & Triathlon Club of CGS",
+		location: "Netherlands & Greece",
+		description: "Competed in various national and international triathlon events, achieving top ranks and demonstrating athletic excellence.",
+		icon: React.createElement(FaMedal),
+		date: "2021-present",
 	},
 ] as const;
 
