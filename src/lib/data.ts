@@ -31,25 +31,32 @@ export const links = [
 
 export const experiencesData = [
 	{
-		title: "Graduated bootcamp",
-		location: "Miami, FL",
-		description: "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+		title: "High School Diploma",
+		location: "Athens, Greece",
+		description: "I graduated from high school with a 19.2/20. I always played sports and have been doing triathlon for 9 years.",
 		icon: React.createElement(LuGraduationCap),
-		date: "2019",
+		date: "2021",
 	},
 	{
-		title: "Front-End Developer",
-		location: "Orlando, FL",
-		description: "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+		title: "Game Developer - Prioneto Games",
+		location: "Athens, Greece",
+		description: "I was developing indie games using the Unity game engine for public release. One of the most successful games I released was Low Poly Racing which came out in April of 2020 for Windows and Linux.",
 		icon: React.createElement(CgWorkAlt),
-		date: "2019 - 2021",
+		date: "2019-2022",
 	},
 	{
-		title: "Full-Stack Developer",
-		location: "Houston, TX",
-		description: "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-		icon: React.createElement(FaReact),
-		date: "2021 - present",
+		title: "Bachelor Technical Computer Science - University of Twente (7.7/10)",
+		location: "Enschede, Netherlands",
+		description: "I am studying Technical Computer Science at the University of Twente. I am currently in my third year and I have a GPA of 7.7/10. I am also member of Aloha the triathlon association of Aloha.",
+		icon: React.createElement(LuGraduationCap),
+		date: "2021-2025",
+	},
+	{
+		title: "Full-Stack Developer - Note-Bridge",
+		location: "Enschede, Netherlands",
+		description: "I work as a full-stack developer for Note-Bridge in order to create a functional website and help start the journey of the company and contribute to its growth. The team and I are working on different goals and deadlines to help the company succeed in the future.",
+		icon: React.createElement(CgWorkAlt),
+		date: "2023-present",
 	},
 ] as const;
 
