@@ -12,9 +12,9 @@ export default function Projects() {
 	return (
 		<section ref={ref} id="projects" className="scroll-mt-28 mb-28">
 			<SectionHeading>My projects</SectionHeading>
-			<div className="flex flex-col sm:flex-row flex-wrap justify-around">
+			<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
 				{projectsData.map((project, index) => (
-					<div className="w-full sm:w-1/2 p-4" key={index}>
+					<div className="p-4" key={index}>
 						<Project {...project} />
 					</div>
 				))}

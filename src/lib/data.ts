@@ -50,7 +50,7 @@ export const experiencesData = [
 	{
 		title: "Bachelor Technical Computer Science - University of Twente (7.7/10)",
 		location: "Enschede, Netherlands",
-		description: "I am studying Technical Computer Science at the University of Twente. I am currently in my third year and I have a GPA of 7.7/10. I am also member of Aloha the triathlon association of Aloha.",
+		description: "I am studying Technical Computer Science at the University of Twente. I am currently in my third year and I have a GPA of 7.7/10. I am also member of Aloha the triathlon association of the UT.",
 		icon: React.createElement(LuGraduationCap),
 		date: "2021-2025",
 	},
