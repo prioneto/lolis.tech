@@ -50,7 +50,7 @@ export const experiencesData = [
 		date: "2021",
 	},
 	{
-		title: "Game Developer - Prioneto Games",
+		title: "Indie Game Developer",
 		location: "Athens, Greece",
 		description: "I was developing indie games using the Unity game engine for public release. One of the most successful games I released was Low Poly Racing which came out in April of 2020 for Windows and Linux.",
 		icon: React.createElement(CgWorkAlt),
