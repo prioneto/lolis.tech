@@ -68,7 +68,7 @@ export const experiencesData = [
 		location: "Enschede, Netherlands",
 		description: "I work as a full-stack developer for Note-Bridge in order to create a functional website and help start the journey of the company and contribute to its growth. The team and I are working on different goals and deadlines to help the company succeed in the future.",
 		icon: React.createElement(CgWorkAlt),
-		date: "2023-present",
+		date: "2023-2024",
 	},
 ] as const;
 
