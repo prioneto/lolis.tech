@@ -4,7 +4,6 @@ import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import { FaMedal } from "react-icons/fa";
 
-import corpcommentImg from "/public/corpcomment.png";
 import lowpolyracingImg from "/public/lowpolyracing.png";
 import covidboardImg from "/public/covidboard.png";
 import othelloImg from "/public/othello.png";
@@ -12,7 +11,7 @@ import chatImg from "/public/chat.png";
 import notebridgeImg from "/public/notebridge.png";
 import gptImg from "/public/gpt.png";
 import mirrorImg from "/public/mirror.png";
-import royaleImg from "/public/royale.png";
+import fitrefImg from "/public/fitref.png";
 
 export const links = [
   {
@@ -117,6 +116,12 @@ export const achievementsData = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "FitRef",
+    description:
+      "This project is a fitness-tracking web application that integrates with Strava to display user activities. It features interactive maps, activity summaries, and data visualizations, providing users with detailed insights into their fitness activities. The application ensures a responsive and engaging user experience, with seamless data fetching and state management. It is built with modern web development practices, it is used daily, and hosted under www.fitref.gr.",
+    imageUrl: fitrefImg,
+  },
   {
     title: "StudentHelperGPT",
     description:
