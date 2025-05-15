@@ -154,12 +154,6 @@ export const projectsData = [
     imageUrl: covidboardImg,
   },
   {
-    title: "Low Poly Royale",
-    description:
-      "Low Poly Royale is the successor of my previous game (Low Poly Racing) and the next title in my Low Poly series. The idea for this game started after realizing my ability to work in C# efficiently and being able to handle large tasks and surpass major challenges in the development process of an indie game. The game is developed in C# inside Untiy and follows the Battle Royale genre of games. The development of the game started after finishing the development of Low Poly Racing but due to the beginning of my studies, this game has been delayed indefinitely.",
-    imageUrl: royaleImg,
-  },
-  {
     title: "Low Poly Racing",
     description:
       "Low Poly Racing is a game that I was developing during the summer of 2020. The game was made in Unity in C# and was an arcade racer that implements AI and different tracks in the mix to make the game fun and competitive. Features of the game include custom AI, different tracks(a new one just got released), 3 cars(more coming soon), TimeTrial Mode, and Racing Mode against Bots.",
