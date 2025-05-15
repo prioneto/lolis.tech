@@ -107,7 +107,7 @@ export const achievementsData = [
   },
   {
     title: "OSM Broken Access Control Exploit",
-    location: "https://medium.com/@prioneto/cracking-the-code-infinite-boss-coin-broken-access-control-exploit-93fd743e60d5",
+    location: "medium.com/@prioneto",
     description:
       "Last year I found a vulnerability in the mobile game OSM (Online Soccer Manager) and this article takes the reader through the process of finding the vulnerability, sharing it with the developers, and getting patched.",
     icon: React.createElement(FaMedal),
