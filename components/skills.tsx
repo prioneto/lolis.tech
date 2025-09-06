@@ -37,7 +37,10 @@ export function Skills() {
                       <Badge
                         key={skillIndex}
                         variant="secondary"
-                        className="bg-primary/40 text-primary border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+                        className="text-primary hover:!bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+                        style={{
+                          backgroundColor: "oklch(0.62 0.24 15 / 0.1)",
+                        }}
                       >
                         {skill}
                       </Badge>
