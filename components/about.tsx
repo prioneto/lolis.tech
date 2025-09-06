@@ -23,10 +23,10 @@ export function About() {
             </div>
 
             <div className="grid gap-6">
-              <Card className="hover:shadow-lg transition-shadow border-border/50">
+              <Card className="hover:shadow-lg transition-shadow" style={{ borderColor: "oklch(0.92 0 0 / 0.5)" }}>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg">
+                    <div className="p-3 rounded-lg" style={{ backgroundColor: "oklch(0.62 0.24 15 / 0.1)" }}>
                       <Code className="h-6 w-6 text-primary" />
                     </div>
                     <div>
@@ -37,10 +37,10 @@ export function About() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow border-border/50">
+              <Card className="hover:shadow-lg transition-shadow" style={{ borderColor: "oklch(0.92 0 0 / 0.5)" }}>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 bg-accent/10 rounded-lg">
+                    <div className="p-3 rounded-lg" style={{ backgroundColor: "oklch(0.68 0.2 25 / 0.1)" }}>
                       <Palette className="h-6 w-6 text-accent" />
                     </div>
                     <div>
@@ -51,10 +51,10 @@ export function About() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow border-border/50">
+              <Card className="hover:shadow-lg transition-shadow" style={{ borderColor: "oklch(0.92 0 0 / 0.5)" }}>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 bg-secondary/10 rounded-lg">
+                    <div className="p-3 rounded-lg" style={{ backgroundColor: "oklch(0.68 0.2 25 / 0.1)" }}>
                       <Zap className="h-6 w-6 text-secondary" />
                     </div>
                     <div>
