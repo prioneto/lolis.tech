@@ -70,7 +70,13 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border animate-in slide-in-from-top-2 duration-300">
+          <div
+            className="md:hidden mt-4 pb-4 border-t animate-in slide-in-from-top-2 duration-300"
+            style={{
+              borderColor: "oklch(0.92 0 0 / 0.5)",
+              backdropFilter: "blur(10px)",
+            }}
+          >
             <div className="flex flex-col space-y-4 pt-4">
               <button
                 onClick={() => scrollToSection("about")}
