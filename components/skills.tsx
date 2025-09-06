@@ -13,7 +13,7 @@ export function Skills() {
     },
     {
       title: "Tools & Others",
-      skills: ["Git", "Docker", "AWS", "Vercel", "Figma", "Jest", "Cypress", "Webpack"],
+      skills: ["Git", "Docker", "AWS", "Vercel", "Figma", "Cypress", "Webpack"],
     },
   ];
 

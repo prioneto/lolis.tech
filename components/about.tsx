@@ -26,7 +26,7 @@ export function About() {
               <Card className="hover:shadow-lg transition-shadow" style={{ borderColor: "oklch(0.92 0 0 / 0.5)" }}>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg" style={{ backgroundColor: "oklch(0.62 0.24 15 / 0.1)" }}>
+                    <div className="p-3 rounded-lg" style={{ backgroundColor: "oklch(0.68 0.24 15 / 0.1)" }}>
                       <Code className="h-6 w-6 text-primary" />
                     </div>
                     <div>
