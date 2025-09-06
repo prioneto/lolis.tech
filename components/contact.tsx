@@ -27,7 +27,7 @@ export function Contact() {
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="flex flex-col items-center gap-4">
-                <div className="p-4 bg-primary/10 rounded-lg">
+                <div className="p-4 rounded-lg" style={{ backgroundColor: "oklch(0.62 0.24 15 / 0.1)" }}>
                   <Mail className="h-8 w-8 text-primary" />
                 </div>
                 <div className="text-center">
@@ -37,7 +37,7 @@ export function Contact() {
               </div>
 
               <div className="flex flex-col items-center gap-4">
-                <div className="p-4 bg-accent/10 rounded-lg">
+                <div className="p-4 rounded-lg" style={{ backgroundColor: "oklch(0.68 0.2 25 / 0.1)" }}>
                   <Phone className="h-8 w-8 text-accent" />
                 </div>
                 <div className="text-center">
@@ -47,7 +47,7 @@ export function Contact() {
               </div>
 
               <div className="flex flex-col items-center gap-4">
-                <div className="p-4 bg-secondary/10 rounded-lg">
+                <div className="p-4 rounded-lg" style={{ backgroundColor: "oklch(0.68 0.2 25 / 0.1)" }}>
                   <MapPin className="h-8 w-8 text-secondary" />
                 </div>
                 <div className="text-center">

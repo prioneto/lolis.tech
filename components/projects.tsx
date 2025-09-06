@@ -18,7 +18,7 @@ export function Projects() {
       title: "Note-Bridge Web Application",
       description: "A platform for students to find and book lessons with teachers.",
       image: "/note-bridge.png",
-      technologies: ["Next.js", "TypeScript", "Tailwind", "Stripe", "Supabase"],
+      technologies: ["Next.js", "TypeScript", "Stripe", "Supabase"],
       liveUrl: "https://note-bridge.com",
     },
     {
@@ -42,12 +42,20 @@ export function Projects() {
             {projects.map((project, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-border/50 overflow-hidden playful-hover hover:rotate-1"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden playful-hover hover:rotate-1"
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  borderColor: "oklch(0.92 0 0 / 0.5)",
+                }}
               >
                 <div className="relative overflow-hidden">
                   <img src={project.image || "/placeholder.svg"} alt={project.title} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: "linear-gradient(to top, oklch(0.62 0.24 15 / 0.3), transparent)",
+                    }}
+                  />
                 </div>
 
                 <CardHeader>
