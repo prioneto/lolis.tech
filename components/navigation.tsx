@@ -47,6 +47,13 @@ export function Navigation() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button
+              onClick={() => scrollToSection("certifications")}
+              className="text-foreground hover:text-primary transition-all duration-300 relative group playful-hover px-3 py-2 rounded-lg hover:bg-primary/10"
+            >
+              Certifications
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </button>
+            <button
               onClick={() => scrollToSection("projects")}
               className="text-foreground hover:text-primary transition-all duration-300 relative group playful-hover px-3 py-2 rounded-lg hover:bg-primary/10"
             >
@@ -93,16 +100,23 @@ export function Navigation() {
                 Skills
               </button>
               <button
-                onClick={() => scrollToSection("projects")}
+                onClick={() => scrollToSection("certifications")}
                 className="text-left text-foreground hover:text-primary transition-all duration-300 playful-hover px-3 py-2 rounded-lg hover:bg-primary/10 animate-in slide-in-from-left-2"
                 style={{ animationDelay: "0.3s" }}
+              >
+                Certifications
+              </button>
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="text-left text-foreground hover:text-primary transition-all duration-300 playful-hover px-3 py-2 rounded-lg hover:bg-primary/10 animate-in slide-in-from-left-2"
+                style={{ animationDelay: "0.4s" }}
               >
                 Projects
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
                 className="text-left text-foreground hover:text-primary transition-all duration-300 playful-hover px-3 py-2 rounded-lg hover:bg-primary/10 animate-in slide-in-from-left-2"
-                style={{ animationDelay: "0.4s" }}
+                style={{ animationDelay: "0.5s" }}
               >
                 Contact
               </button>
