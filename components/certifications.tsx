@@ -46,12 +46,21 @@ export function Certifications() {
 
   const achievements = [
     {
-      title: "Udemy Programming Fundamentals through Game Development with Unity",
-      issuer: "Udemy",
-      date: "2024",
-      type: "course",
-      description: "Designed and Published a course on Udemy about the fundamentals of programming through game development with Unity.",
-      link: "https://www.udemy.com/course/programming-fundamentals-through-game-development-with-unity",
+      title: "Automating User and Infrastructure Profiling from Cyber Leaks with LLMs",
+      issuer: "University of Twente",
+      date: "2025",
+      type: "publication",
+      description: "Publication of my research project which was about automating user and infrastructure profiling from cyber leaks with LLMs.",
+      link: "https://purl.utwente.nl/essays/107532",
+      status: "Published",
+    },
+    {
+      title: "Smart Bike Design Project",
+      issuer: "University of Twente",
+      date: "2025",
+      type: "publication",
+      description: "Publication of our Design project which was a smart bike design for a research group in the University of Twente.",
+      link: "https://bachelorshowcase-eemcs.apps.utwente.nl/view/S4Jq7bWG/",
       status: "Published",
     },
     {
