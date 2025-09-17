@@ -19,7 +19,7 @@ export function Certifications() {
     {
       title: "Master of Computer Science - Cyber Security",
       issuer: "University of Twente",
-      date: "2025 - Present",
+      date: "2025 - 2026",
       type: "degree",
       description: "Started my Master of Computer Science - Cyber Security degree which consists of material mainly focused on cyber security and software engineering.",
       status: "Ongoing",

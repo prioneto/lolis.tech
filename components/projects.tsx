@@ -91,6 +91,18 @@ export function Projects() {
               </Card>
             ))}
           </div>
+
+          <div className="mt-12 flex justify-center">
+            <a
+              href="https://github.com/prioneto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 playful-hover hover:scale-105"
+            >
+              For more projects, check my GitHub
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
