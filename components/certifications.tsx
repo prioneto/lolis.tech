@@ -2,10 +2,28 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Award, GraduationCap, Trophy, Calendar } from "lucide-react";
+import { Award, GraduationCap, Trophy, Calendar, BookOpen, ExternalLink } from "lucide-react";
+import { Button } from "./ui/button";
 
 export function Certifications() {
   const certifications = [
+    {
+      title: "Cyber Security (CSE) - SPECTRO",
+      issuer: "EIT Digital Master School",
+      date: "2025 - 2027",
+      type: "degree",
+      description:
+        "Started my double degree from the EIT Digital Master School in the track of Cyber Security and attending the University of Twente as my entry university and the Università di Trento as my exit university.",
+      status: "Ongoing",
+    },
+    {
+      title: "Master of Computer Science - Cyber Security",
+      issuer: "University of Twente",
+      date: "2025 - Present",
+      type: "degree",
+      description: "Started my Master of Computer Science - Cyber Security degree which consists of material mainly focused on cyber security and software engineering.",
+      status: "Ongoing",
+    },
     {
       title: "Bachelor of Science in Technical Computer Science",
       issuer: "University of Twente",
@@ -21,11 +39,30 @@ export function Certifications() {
       date: "2024",
       type: "certification",
       description: "Foundational understanding of Github and how to use it to collaborate with others.",
+      link: "https://www.credly.com/badges/902c0a93-ead6-4cf5-9fa3-a98cbc22941a/public_url",
       status: "Completed",
     },
   ];
 
   const achievements = [
+    {
+      title: "Udemy Programming Fundamentals through Game Development with Unity",
+      issuer: "Udemy",
+      date: "2024",
+      type: "course",
+      description: "Designed and Published a course on Udemy about the fundamentals of programming through game development with Unity.",
+      link: "https://www.udemy.com/course/programming-fundamentals-through-game-development-with-unity",
+      status: "Published",
+    },
+    {
+      title: "OSM Broken Access Control Exploit",
+      issuer: "Medium",
+      date: "2024",
+      type: "publication",
+      description: "Publication of an exploit I found in the OSM (Online Soccer Manager) online video game.",
+      link: "https://medium.com/@prioneto/cracking-the-code-infinite-boss-coin-broken-access-control-exploit-93fd743e60d5",
+      status: "Published",
+    },
     {
       title: "Best Note-Bridge Project",
       issuer: "University of Twente",
@@ -43,15 +80,6 @@ export function Certifications() {
       status: "Awarded",
       grade: "2nd Place",
     },
-    {
-      title: "OSM Broken Access Control Exploit",
-      issuer: "Medium",
-      date: "2024",
-      type: "publication",
-      description: "Publication of an exploit I found in the OSM (Online Soccer Manager) online video game.",
-      status: "Published",
-      grade: "Published",
-    },
   ];
 
   const getIcon = (type: string) => {
@@ -62,6 +90,10 @@ export function Certifications() {
         return <Award className="h-6 w-6" />;
       case "achievement":
         return <Trophy className="h-6 w-6" />;
+      case "publication":
+        return <BookOpen className="h-6 w-6" />;
+      case "course":
+        return <BookOpen className="h-6 w-6" />;
       default:
         return <Award className="h-6 w-6" />;
     }
@@ -129,12 +161,18 @@ export function Certifications() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground mb-4 leading-relaxed">{cert.description}</p>
-                      <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center justify-between text-sm mb-2">
                         <div className="flex items-center gap-2 text-muted-foreground">
                           <Calendar className="h-4 w-4" />
                           <span>{cert.date}</span>
                         </div>
                         <div className="font-semibold text-primary">{cert.grade}</div>
+                        {cert.link && (
+                          <Button onClick={() => window.open(cert.link, "_blank")} className="bg-primary hover:bg-primary/90 playful-hover hover:scale-105 transition-all duration-300 pulse-glow ml-4">
+                            Check it out
+                            <ExternalLink className="h-4 w-4 ml-1" />
+                          </Button>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
@@ -182,12 +220,22 @@ export function Certifications() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground mb-4 leading-relaxed">{achievement.description}</p>
-                      <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center justify-between text-sm mb-2">
                         <div className="flex items-center gap-2 text-muted-foreground">
                           <Calendar className="h-4 w-4" />
                           <span>{achievement.date}</span>
                         </div>
                         <div className="font-semibold text-primary">{achievement.grade}</div>
+
+                        {achievement.link && (
+                          <Button
+                            onClick={() => window.open(achievement.link, "_blank")}
+                            className="bg-primary hover:bg-primary/90 playful-hover hover:scale-105 transition-all duration-300 pulse-glow"
+                          >
+                            Check it out
+                            <ExternalLink className="h-4 w-4" />
+                          </Button>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
