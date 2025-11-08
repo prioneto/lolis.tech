@@ -16,7 +16,7 @@ export function Projects() {
     },
     {
       title: "Landy",
-      description: "This project is a flight‑tracking web application that integrates with Google Calendar and Gmail to display user flights.",
+      description: "This project is a flight‑tracking web application that integrates with Google to display flights.",
       image: "/landy.png",
       technologies: ["Next.js", "TypeScript", "Google API"],
       liveUrl: "https://landy.gr",
