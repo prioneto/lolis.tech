@@ -15,11 +15,11 @@ export function Projects() {
       liveUrl: "https://fitref.gr",
     },
     {
-      title: "Note-Bridge Web Application",
-      description: "A platform for students to find and book lessons with teachers.",
-      image: "/note-bridge.png",
-      technologies: ["Next.js", "TypeScript", "Stripe", "Supabase"],
-      liveUrl: "https://note-bridge.com",
+      title: "Landy",
+      description: "This project is a flight‑tracking web application that integrates with Google Calendar and Gmail to display user flights.",
+      image: "/landy.png",
+      technologies: ["Next.js", "TypeScript", "Google API"],
+      liveUrl: "https://landy.gr",
     },
     {
       title: "Low Poly Racing",
