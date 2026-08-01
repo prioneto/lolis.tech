@@ -44,7 +44,7 @@ export function Experience() {
       location: "University of Twente",
       type: "part-time",
       startDate: "Sep 2025",
-      endDate: "Present",
+      endDate: "Nov 2025",
       description:
         "Assisting students with their assignments and projects. Gained experience in teaching and mentoring students.",
       technologies: ["C", "Operating Systems"],
