@@ -1,7 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
+import Image from "next/image";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 export function Hero() {
@@ -45,7 +47,7 @@ export function Hero() {
                 className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 transition-all duration-300 playful-hover hover:scale-110 hover:rotate-3"
                 style={{ borderColor: "oklch(0.62 0.24 15 / 0.2)" }}
               >
-                <img src="/mugshot.jpeg" alt="Profile" className="w-full h-full object-cover" />
+                <Image src="/mugshot.jpeg" alt="Profile" width={160} height={160} priority className="w-full h-full object-cover" />
               </div>
               {/* Animated ring around image */}
               <div
@@ -82,7 +84,7 @@ export function Hero() {
                 className="hover:bg-primary hover:text-primary-foreground bg-transparent playful-hover hover:rotate-12 transition-all duration-300"
                 onClick={() => window.open("https://github.com/prioneto", "_blank")}
               >
-                <Github className="h-5 w-5" />
+                <FaGithub className="h-5 w-5" />
               </Button>
               <Button
                 variant="outline"
@@ -91,7 +93,7 @@ export function Hero() {
                 style={{ animationDelay: "0.1s" }}
                 onClick={() => window.open("https://www.linkedin.com/in/dimlol/", "_blank")}
               >
-                <Linkedin className="h-5 w-5" />
+                <FaLinkedin className="h-5 w-5" />
               </Button>
               <Button
                 variant="outline"

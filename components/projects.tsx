@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/
 import { Button } from "./ui/button";
 import { Badge } from "../components/ui/badge";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 export function Projects() {
   const projects = [
@@ -48,8 +49,8 @@ export function Projects() {
                   borderColor: "oklch(0.92 0 0 / 0.5)",
                 }}
               >
-                <div className="relative overflow-hidden">
-                  <img src={project.image || "/placeholder.svg"} alt={project.title} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="relative h-48 overflow-hidden">
+                  <Image src={project.image} alt={project.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{

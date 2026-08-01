@@ -1,21 +1,40 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { Briefcase, Calendar, MapPin, ExternalLink, Building2 } from "lucide-react";
+import {
+  Briefcase,
+  Calendar,
+  MapPin,
+  ExternalLink,
+  Building2,
+} from "lucide-react";
 
 export function Experience() {
   const experiences = [
     {
-      title: "Full Stack Engineer",
+      title: "Software Engineer",
       company: "Stamina Technologies Limited",
       location: "Remote",
       type: "full-time",
       startDate: "Jul 2025",
-      endDate: "Present",
-      description: "Worked on developing web applications and tools for the university's research projects. Gained experience in full-stack development and agile methodologies.",
-      technologies: ["React Native", "Node.js", "Expo", "Supabase", "Typescript"],
+      endDate: "Jul 2026",
+      description:
+        "Worked on developing web applications and tools for the university's research projects. Gained experience in full-stack development and agile methodologies.",
+      technologies: [
+        "React Native",
+        "Node.js",
+        "Expo",
+        "Supabase",
+        "Typescript",
+      ],
       link: "https://joinstamina.com/",
       current: true,
     },
@@ -26,7 +45,8 @@ export function Experience() {
       type: "part-time",
       startDate: "Sep 2025",
       endDate: "Present",
-      description: "Assisting students with their assignments and projects. Gained experience in teaching and mentoring students.",
+      description:
+        "Assisting students with their assignments and projects. Gained experience in teaching and mentoring students.",
       technologies: ["C", "Operating Systems"],
       current: true,
     },
@@ -37,8 +57,17 @@ export function Experience() {
       type: "part-time",
       startDate: "Jan 2025",
       endDate: "Jun 2025",
-      description: "Mainting a CMC Platform for the company's games and analytics. The CMC was accessed by companies like CNN, DPG, NU.NL and more.",
-      technologies: ["React", "Next.js", "Node.js", "MySQL", "Tailwind CSS", "AWS", "TypeScript"],
+      description:
+        "Mainting a CMC Platform for the company's games and analytics. The CMC was accessed by companies like CNN, DPG, NU.NL and more.",
+      technologies: [
+        "React",
+        "Next.js",
+        "Node.js",
+        "MySQL",
+        "Tailwind CSS",
+        "AWS",
+        "TypeScript",
+      ],
       current: false,
     },
     {
@@ -48,8 +77,15 @@ export function Experience() {
       type: "full-time",
       startDate: "Apr 2023",
       endDate: "Sep 2024",
-      description: "Developing and maintaining a platform for students to find and book lessons with teachers. Working with modern web technologies including Next.js, TypeScript, and Supabase.",
-      technologies: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS"],
+      description:
+        "Developing and maintaining a platform for students to find and book lessons with teachers. Working with modern web technologies including Next.js, TypeScript, and Supabase.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Supabase",
+        "Stripe",
+        "Tailwind CSS",
+      ],
       link: "https://note-bridge.com",
       current: false,
     },
@@ -121,12 +157,19 @@ export function Experience() {
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 rounded-lg" style={{ backgroundColor: getTypeColor(exp.type) }}>
+                      <div
+                        className="p-3 rounded-lg"
+                        style={{ backgroundColor: getTypeColor(exp.type) }}
+                      >
                         {getTypeIcon(exp.type)}
                       </div>
                       <div className="flex-1">
-                        <CardTitle className="text-xl text-foreground mb-1">{exp.title}</CardTitle>
-                        <CardDescription className="text-lg text-muted-foreground mb-2">{exp.company}</CardDescription>
+                        <CardTitle className="text-xl text-foreground mb-1">
+                          {exp.title}
+                        </CardTitle>
+                        <CardDescription className="text-lg text-muted-foreground mb-2">
+                          {exp.company}
+                        </CardDescription>
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <MapPin className="h-4 w-4" />
@@ -135,7 +178,8 @@ export function Experience() {
                           <div className="flex items-center gap-1">
                             <Calendar className="h-4 w-4" />
                             <span>
-                              {exp.startDate} - {exp.current ? "Present" : exp.endDate}
+                              {exp.startDate} -{" "}
+                              {exp.current ? "Present" : exp.endDate}
                             </span>
                           </div>
                         </div>
@@ -150,13 +194,14 @@ export function Experience() {
                             exp.type === "full-time"
                               ? "oklch(0.62 0.24 15 / 0.3)"
                               : exp.type === "internship"
-                              ? "oklch(0.68 0.2 25 / 0.3)"
-                              : exp.type === "freelance"
-                              ? "oklch(0.4 0.15 142 / 0.3)"
-                              : "oklch(0.6 0.15 240 / 0.3)",
+                                ? "oklch(0.68 0.2 25 / 0.3)"
+                                : exp.type === "freelance"
+                                  ? "oklch(0.4 0.15 142 / 0.3)"
+                                  : "oklch(0.6 0.15 240 / 0.3)",
                         }}
                       >
-                        {exp.type.charAt(0).toUpperCase() + exp.type.slice(1).replace("-", " ")}
+                        {exp.type.charAt(0).toUpperCase() +
+                          exp.type.slice(1).replace("-", " ")}
                       </Badge>
                       {exp.current && (
                         <Badge
@@ -174,7 +219,9 @@ export function Experience() {
                 </CardHeader>
 
                 <CardContent>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{exp.description}</p>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {exp.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {exp.technologies.map((tech, techIndex) => (
