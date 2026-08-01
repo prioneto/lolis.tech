@@ -36,7 +36,7 @@ export function Experience() {
         "Typescript",
       ],
       link: "https://joinstamina.com/",
-      current: true,
+      current: false,
     },
     {
       title: "Teaching Assistant",
@@ -48,7 +48,7 @@ export function Experience() {
       description:
         "Assisting students with their assignments and projects. Gained experience in teaching and mentoring students.",
       technologies: ["C", "Operating Systems"],
-      current: true,
+      current: false,
     },
     {
       title: "Lead Full-Stack Developer",
