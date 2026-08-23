@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Card,
   CardContent,
@@ -9,243 +7,130 @@ import {
 } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import {
-  Briefcase,
-  Calendar,
-  MapPin,
-  ExternalLink,
-  Building2,
-} from "lucide-react";
+import { OrganizationLogo } from "./organization-logo";
+import { Calendar, ExternalLink, MapPin } from "lucide-react";
+
+const experiences = [
+  {
+    title: "Software Engineer",
+    company: "Stamina Technologies Limited",
+    logo: "/logos/stamina.png",
+    location: "Remote",
+    type: "Full time",
+    dates: "Jul 2025 – Jul 2026",
+    description:
+      "Built web applications and internal tools, contributing across full-stack development in an agile product environment.",
+    technologies: ["React Native", "Node.js", "Expo", "Supabase", "TypeScript"],
+    link: "https://joinstamina.com/",
+  },
+  {
+    title: "Teaching Assistant",
+    company: "University of Twente",
+    logo: "/logos/utwente.png",
+    location: "Enschede",
+    type: "Part time",
+    dates: "Sep 2025 – Nov 2025",
+    description:
+      "Supported students with assignments and projects in C and operating systems, combining technical guidance with mentoring.",
+    technologies: ["C", "Operating Systems", "Mentoring"],
+    link: "https://www.utwente.nl/en/",
+  },
+  {
+    title: "Lead Full-Stack Developer",
+    company: "Denda Games BV",
+    logo: "/logos/denda.png",
+    location: "Hybrid",
+    type: "Part time",
+    dates: "Jan 2025 – Jun 2025",
+    description:
+      "Maintained a content-management and analytics platform used by media companies including CNN, DPG, and NU.nl.",
+    technologies: ["React", "Next.js", "Node.js", "MySQL", "Tailwind CSS", "AWS", "TypeScript"],
+    link: "https://denda-corporate.com/",
+  },
+  {
+    title: "Full-Stack Developer",
+    company: "Note-Bridge",
+    logo: "/logos/note-bridge.png",
+    location: "Hybrid",
+    type: "Full time",
+    dates: "Apr 2023 – Sep 2024",
+    description:
+      "Developed and maintained a platform that helped students find and book lessons with teachers.",
+    technologies: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS"],
+    link: "https://note-bridge.com",
+  },
+];
 
 export function Experience() {
-  const experiences = [
-    {
-      title: "Software Engineer",
-      company: "Stamina Technologies Limited",
-      location: "Remote",
-      type: "full-time",
-      startDate: "Jul 2025",
-      endDate: "Jul 2026",
-      description:
-        "Worked on developing web applications and tools for the university's research projects. Gained experience in full-stack development and agile methodologies.",
-      technologies: [
-        "React Native",
-        "Node.js",
-        "Expo",
-        "Supabase",
-        "Typescript",
-      ],
-      link: "https://joinstamina.com/",
-      current: false,
-    },
-    {
-      title: "Teaching Assistant",
-      company: "University of Twente",
-      location: "University of Twente",
-      type: "part-time",
-      startDate: "Sep 2025",
-      endDate: "Nov 2025",
-      description:
-        "Assisting students with their assignments and projects. Gained experience in teaching and mentoring students.",
-      technologies: ["C", "Operating Systems"],
-      current: false,
-    },
-    {
-      title: "Lead Full-Stack Developer",
-      company: "Denda Games BV",
-      location: "Hybrid",
-      type: "part-time",
-      startDate: "Jan 2025",
-      endDate: "Jun 2025",
-      description:
-        "Mainting a CMC Platform for the company's games and analytics. The CMC was accessed by companies like CNN, DPG, NU.NL and more.",
-      technologies: [
-        "React",
-        "Next.js",
-        "Node.js",
-        "MySQL",
-        "Tailwind CSS",
-        "AWS",
-        "TypeScript",
-      ],
-      current: false,
-    },
-    {
-      title: "Full-Stack Developer",
-      company: "Note-Bridge",
-      location: "Hybrid",
-      type: "full-time",
-      startDate: "Apr 2023",
-      endDate: "Sep 2024",
-      description:
-        "Developing and maintaining a platform for students to find and book lessons with teachers. Working with modern web technologies including Next.js, TypeScript, and Supabase.",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "Supabase",
-        "Stripe",
-        "Tailwind CSS",
-      ],
-      link: "https://note-bridge.com",
-      current: false,
-    },
-  ];
-
-  const getTypeIcon = (type: string) => {
-    switch (type) {
-      case "full-time":
-        return <Briefcase className="h-5 w-5" />;
-      case "internship":
-        return <Building2 className="h-5 w-5" />;
-      case "freelance":
-        return <Briefcase className="h-5 w-5" />;
-      case "project":
-        return <Briefcase className="h-5 w-5" />;
-      default:
-        return <Briefcase className="h-5 w-5" />;
-    }
-  };
-
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case "full-time":
-        return "oklch(0.62 0.24 15 / 0.1)";
-      case "internship":
-        return "oklch(0.68 0.2 25 / 0.1)";
-      case "freelance":
-        return "oklch(0.4 0.15 142 / 0.1)";
-      case "project":
-        return "oklch(0.6 0.15 240 / 0.1)";
-      default:
-        return "oklch(0.62 0.24 15 / 0.1)";
-    }
-  };
-
-  const getTypeTextColor = (type: string) => {
-    switch (type) {
-      case "full-time":
-        return "text-primary";
-      case "internship":
-        return "text-accent";
-      case "freelance":
-        return "text-green-600";
-      case "project":
-        return "text-blue-600";
-      default:
-        return "text-primary";
-    }
-  };
-
   return (
-    <section id="experience" className="py-20 bg-background">
+    <section id="experience" className="bg-background py-16 sm:py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance">
-            Work <span className="text-primary">Experience</span>
-          </h2>
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 text-center sm:mb-14">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Career</p>
+            <h2 className="text-balance text-4xl font-bold md:text-5xl">
+              Work <span className="text-primary">Experience</span>
+            </h2>
+          </div>
 
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
+          <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+            {experiences.map((experience) => (
               <Card
-                key={index}
-                className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50 overflow-hidden playful-hover hover:rotate-1"
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                  borderColor: "oklch(0.92 0 0 / 0.5)",
-                }}
+                key={`${experience.company}-${experience.title}`}
+                className="group flex h-full flex-col overflow-hidden border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-start gap-4">
-                      <div
-                        className="p-3 rounded-lg"
-                        style={{ backgroundColor: getTypeColor(exp.type) }}
-                      >
-                        {getTypeIcon(exp.type)}
-                      </div>
-                      <div className="flex-1">
-                        <CardTitle className="text-xl text-foreground mb-1">
-                          {exp.title}
-                        </CardTitle>
-                        <CardDescription className="text-lg text-muted-foreground mb-2">
-                          {exp.company}
-                        </CardDescription>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <MapPin className="h-4 w-4" />
-                            <span>{exp.location}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4" />
-                            <span>
-                              {exp.startDate} -{" "}
-                              {exp.current ? "Present" : exp.endDate}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-end gap-2">
-                      <Badge
-                        className={`text-xs ${getTypeTextColor(exp.type)}`}
-                        style={{
-                          backgroundColor: getTypeColor(exp.type),
-                          borderColor:
-                            exp.type === "full-time"
-                              ? "oklch(0.62 0.24 15 / 0.3)"
-                              : exp.type === "internship"
-                                ? "oklch(0.68 0.2 25 / 0.3)"
-                                : exp.type === "freelance"
-                                  ? "oklch(0.4 0.15 142 / 0.3)"
-                                  : "oklch(0.6 0.15 240 / 0.3)",
-                        }}
-                      >
-                        {exp.type.charAt(0).toUpperCase() +
-                          exp.type.slice(1).replace("-", " ")}
-                      </Badge>
-                      {exp.current && (
-                        <Badge
-                          className="text-xs bg-green-500/20 text-green-600 border-green-500/30"
-                          style={{
-                            backgroundColor: "oklch(0.4 0.15 142 / 0.2)",
-                            borderColor: "oklch(0.4 0.15 142 / 0.3)",
-                          }}
-                        >
-                          Current
+                <CardHeader className="space-y-0 p-5 sm:p-6">
+                  <div className="flex items-start gap-3.5 sm:gap-4">
+                    <OrganizationLogo src={experience.logo} alt={experience.company} />
+
+                    <div className="min-w-0 flex-1">
+                      <CardTitle className="text-balance text-lg leading-snug text-foreground sm:text-xl">
+                        {experience.title}
+                      </CardTitle>
+                      <CardDescription className="mt-1 text-sm leading-snug text-muted-foreground sm:text-base">
+                        {experience.company}
+                      </CardDescription>
+
+                      <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-muted-foreground sm:text-sm">
+                        <Badge variant="outline" className="rounded-full bg-primary/5 px-2.5 py-1 text-primary">
+                          {experience.type}
                         </Badge>
-                      )}
+                        <span className="inline-flex items-center gap-1.5">
+                          <MapPin className="h-3.5 w-3.5" />
+                          {experience.location}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <Calendar className="h-3.5 w-3.5" />
+                          {experience.dates}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </CardHeader>
 
-                <CardContent>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {exp.description}
+                <CardContent className="flex flex-1 flex-col px-5 pb-5 pt-0 sm:px-6 sm:pb-6">
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {experience.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {exp.technologies.map((tech, techIndex) => (
+                  <div className="mt-auto flex flex-wrap gap-2">
+                    {experience.technologies.map((technology) => (
                       <Badge
-                        key={techIndex}
+                        key={technology}
                         variant="outline"
-                        className="text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer hover:scale-105"
-                        style={{
-                          backgroundColor: "oklch(0.62 0.24 15 / 0.1)",
-                          borderColor: "oklch(0.62 0.24 15 / 0.3)",
-                        }}
+                        className="rounded-full bg-primary/5 px-2.5 py-1 text-xs transition-colors hover:bg-primary hover:text-primary-foreground"
                       >
-                        {tech}
+                        {technology}
                       </Badge>
                     ))}
                   </div>
 
-                  {exp.link && (
-                    <Button
-                      onClick={() => window.open(exp.link, "_blank")}
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 text-sm playful-hover hover:scale-105 transition-all duration-300 pulse-glow"
-                    >
-                      View Project
-                      <ExternalLink className="h-4 w-4 ml-2" />
+                  {experience.link && (
+                    <Button asChild variant="outline" size="sm" className="mt-5 w-full sm:w-fit">
+                      <a href={experience.link} target="_blank" rel="noopener noreferrer">
+                        Visit website
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
                     </Button>
                   )}
                 </CardContent>

@@ -3,24 +3,24 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "../components/ui/badge";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Hammer } from "lucide-react";
 import Image from "next/image";
 
 export function Projects() {
   const projects = [
+    {
+      title: "Signalcase",
+      description: "A native macOS app that turns logs from Supabase, Render, GitHub, and your application into compact, evidence-backed bug cases—without requiring an AI account.",
+      image: "/signalcase-app.png",
+      technologies: ["SwiftUI", "Swift", "Next.js", "TypeScript", "Supabase", "Stripe"],
+      liveUrl: "#",
+    },
     {
       title: "FitRef",
       description: "This project is a fitness-tracking web application that integrates the Strava API to display user activities.",
       image: "/fitref.png",
       technologies: ["Next.js", "TypeScript", "Tailwind", "Supabase"],
       liveUrl: "https://fitref.gr",
-    },
-    {
-      title: "Landy",
-      description: "This project is a flight‑tracking web application that integrates with Google to display flights.",
-      image: "/landy.png",
-      technologies: ["Next.js", "TypeScript", "Google API"],
-      liveUrl: "https://landy.gr",
     },
     {
       title: "Low Poly Racing",
@@ -43,13 +43,13 @@ export function Projects() {
             {projects.map((project, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden playful-hover hover:rotate-1"
+                className="group flex h-full flex-col overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl playful-hover hover:rotate-1"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                   borderColor: "oklch(0.92 0 0 / 0.5)",
                 }}
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative aspect-video overflow-hidden bg-foreground">
                   <Image src={project.image} alt={project.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -59,13 +59,13 @@ export function Projects() {
                   />
                 </div>
 
-                <CardHeader>
+                <CardHeader className="flex-1 pb-5">
                   <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
                   <CardDescription className="text-muted-foreground leading-relaxed">{project.description}</CardDescription>
                 </CardHeader>
 
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <CardContent className="mt-auto">
+                  <div className="mb-5 flex min-h-16 content-start flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <Badge key={techIndex} variant="outline" className="text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer hover:scale-105">
                         {tech}
@@ -73,21 +73,19 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      className="flex-1 bg-primary hover:bg-primary/90 playful-hover hover:scale-105 transition-all duration-300 pulse-glow"
-                      onClick={() => {
-                        if (project.liveUrl && project.liveUrl !== "#") {
-                          window.open(project.liveUrl, "_blank");
-                        }
-                      }}
-                      disabled={!project.liveUrl || project.liveUrl === "#"}
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                      Live Demo
+                  {project.liveUrl && project.liveUrl !== "#" ? (
+                    <Button asChild size="sm" className="w-full playful-hover transition-all duration-300 hover:scale-[1.02]">
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
+                        Live Demo
+                      </a>
                     </Button>
-                  </div>
+                  ) : (
+                    <Button size="sm" variant="outline" className="w-full text-muted-foreground" disabled>
+                      <Hammer className="h-4 w-4" />
+                      In development
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
