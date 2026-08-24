@@ -10,10 +10,13 @@ export function Projects() {
   const projects = [
     {
       title: "Signalcase",
-      description: "A native macOS app that turns logs from Supabase, Render, GitHub, and your application into compact, evidence-backed bug cases—without requiring an AI account.",
-      image: "/signalcase-app.png",
-      technologies: ["SwiftUI", "Swift", "Next.js", "TypeScript", "Supabase", "Stripe"],
-      liveUrl: "#",
+      description: "My own product: a free, open-source native macOS app that turns logs from Supabase, Render, GitHub, and your application into compact, evidence-backed bug cases. Deterministic grouping — no AI account required. Built end-to-end: SwiftUI client, Next.js backend, Supabase with row-level security.",
+      image: "/signalcase.png",
+      technologies: ["SwiftUI", "Swift", "Next.js", "TypeScript", "Supabase"],
+      liveUrl: "https://signalcase.vercel.app",
+      ctaLabel: "Live demo",
+      demoUrl: "https://github.com/prioneto/signalcase",
+      demoLabel: "View source",
     },
     {
       title: "FitRef",
@@ -74,12 +77,21 @@ export function Projects() {
                   </div>
 
                   {project.liveUrl && project.liveUrl !== "#" ? (
-                    <Button asChild size="sm" className="w-full playful-hover transition-all duration-300 hover:scale-[1.02]">
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
-                        Live Demo
-                      </a>
-                    </Button>
+                    <div className="flex gap-2">
+                      <Button asChild size="sm" className="flex-1 playful-hover transition-all duration-300 hover:scale-[1.02]">
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
+                          {project.ctaLabel ?? "Live Demo"}
+                        </a>
+                      </Button>
+                      {project.demoUrl ? (
+                        <Button asChild size="sm" variant="outline" className="playful-hover transition-all duration-300 hover:scale-[1.02]">
+                          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                            {project.demoLabel ?? "Live demo"}
+                          </a>
+                        </Button>
+                      ) : null}
+                    </div>
                   ) : (
                     <Button size="sm" variant="outline" className="w-full text-muted-foreground" disabled>
                       <Hammer className="h-4 w-4" />
