@@ -11,7 +11,7 @@ export function Projects() {
     {
       title: "Signalcase",
       description: "My own product: a free, open-source native macOS app that turns logs from Supabase, Render, GitHub, and your application into compact, evidence-backed bug cases. Deterministic grouping — no AI account required. Built end-to-end: SwiftUI client, Next.js backend, Supabase with row-level security.",
-      image: "/signalcase.png",
+      image: "/signalcase-app.png",
       technologies: ["SwiftUI", "Swift", "Next.js", "TypeScript", "Supabase"],
       liveUrl: "https://signalcase.vercel.app",
       ctaLabel: "Live demo",
