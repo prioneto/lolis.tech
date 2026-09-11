@@ -40,13 +40,6 @@ export function Navigation() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button
-              onClick={() => scrollToSection("skills")}
-              className="text-foreground hover:text-primary transition-all duration-300 relative group playful-hover px-3 py-2 rounded-lg hover:bg-primary/10"
-            >
-              Skills
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button
               onClick={() => scrollToSection("experience")}
               className="text-foreground hover:text-primary transition-all duration-300 relative group playful-hover px-3 py-2 rounded-lg hover:bg-primary/10"
             >
@@ -98,13 +91,6 @@ export function Navigation() {
                 style={{ animationDelay: "0.1s" }}
               >
                 About
-              </button>
-              <button
-                onClick={() => scrollToSection("skills")}
-                className="text-left text-foreground hover:text-primary transition-all duration-300 playful-hover px-3 py-2 rounded-lg hover:bg-primary/10 animate-in slide-in-from-left-2"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Skills
               </button>
               <button
                 onClick={() => scrollToSection("experience")}
