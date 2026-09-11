@@ -6,8 +6,9 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dimitris Lolis | prioneto",
-  description: "Computer Science Student, Developer and Passionate Triathlete.",
+  title: "Dimitris Lolis | Developer & Builder",
+  description:
+    "Selected products, projects, and experience from Dimitris Lolis, a full-stack developer and cyber security student in the Netherlands.",
 };
 
 export default function RootLayout({

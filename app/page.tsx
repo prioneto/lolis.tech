@@ -8,13 +8,13 @@ import { Navigation } from "../components/navigation";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen overflow-x-clip bg-background text-foreground">
       <Navigation />
       <Hero />
+      <Projects />
       <About />
       <Experience />
       <Certifications />
-      <Projects />
       <Contact />
     </main>
   );

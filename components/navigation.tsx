@@ -1,129 +1,71 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
+const links = [
+  ["Work", "projects"],
+  ["About", "about"],
+  ["Experience", "experience"],
+  ["Contact", "contact"],
+] as const;
+
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"}`}>
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-primary cursor-pointer hover:wiggle transition-all duration-300 hover:scale-110">{"<prioneto />"}</div>
+    <nav aria-label="Primary navigation" className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+      <div className="mx-auto flex max-w-4xl items-center justify-between rounded-2xl border border-border/80 bg-background/90 px-3 py-2 shadow-[0_8px_32px_rgba(30,10,10,0.06)] backdrop-blur-xl sm:px-4">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="rounded-lg px-2 py-1.5 font-mono text-sm font-bold tracking-[-0.03em] text-foreground transition-colors hover:bg-muted hover:text-primary"
+          aria-label="Back to top"
+        >
+          DIMITRIS<span className="text-primary">.</span>
+        </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-foreground hover:text-primary transition-all duration-300 relative group playful-hover px-3 py-2 rounded-lg hover:bg-primary/10"
-            >
-              About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        <div className="hidden items-center gap-1 md:flex">
+          {links.map(([label, id]) => (
+            <button key={id} onClick={() => scrollTo(id)} className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+              {label}
             </button>
-            <button
-              onClick={() => scrollToSection("experience")}
-              className="text-foreground hover:text-primary transition-all duration-300 relative group playful-hover px-3 py-2 rounded-lg hover:bg-primary/10"
-            >
-              Experience
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection("certifications")}
-              className="text-foreground hover:text-primary transition-all duration-300 relative group playful-hover px-3 py-2 rounded-lg hover:bg-primary/10"
-            >
-              Certifications
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="text-foreground hover:text-primary transition-all duration-300 relative group playful-hover px-3 py-2 rounded-lg hover:bg-primary/10"
-            >
-              Projects
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-foreground hover:text-primary transition-all duration-300 relative group playful-hover px-3 py-2 rounded-lg hover:bg-primary/10"
-            >
-              Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden transition-all duration-300 hover:scale-110 hover:rotate-90 playful-hover" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </Button>
+          ))}
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div
-            className="md:hidden mt-4 pb-4 border-t animate-in slide-in-from-top-2 duration-300"
-            style={{
-              borderColor: "oklch(0.92 0 0 / 0.5)",
-              backdropFilter: "blur(10px)",
-            }}
-          >
-            <div className="flex flex-col space-y-4 pt-4">
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-left text-foreground hover:text-primary transition-all duration-300 playful-hover px-3 py-2 rounded-lg hover:bg-primary/10 animate-in slide-in-from-left-2"
-                style={{ animationDelay: "0.1s" }}
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("experience")}
-                className="text-left text-foreground hover:text-primary transition-all duration-300 playful-hover px-3 py-2 rounded-lg hover:bg-primary/10 animate-in slide-in-from-left-2"
-                style={{ animationDelay: "0.3s" }}
-              >
-                Experience
-              </button>
-              <button
-                onClick={() => scrollToSection("certifications")}
-                className="text-left text-foreground hover:text-primary transition-all duration-300 playful-hover px-3 py-2 rounded-lg hover:bg-primary/10 animate-in slide-in-from-left-2"
-                style={{ animationDelay: "0.4s" }}
-              >
-                Certifications
-              </button>
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="text-left text-foreground hover:text-primary transition-all duration-300 playful-hover px-3 py-2 rounded-lg hover:bg-primary/10 animate-in slide-in-from-left-2"
-                style={{ animationDelay: "0.5s" }}
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-left text-foreground hover:text-primary transition-all duration-300 playful-hover px-3 py-2 rounded-lg hover:bg-primary/10 animate-in slide-in-from-left-2"
-                style={{ animationDelay: "0.6s" }}
-              >
-                Contact
-              </button>
-            </div>
-          </div>
-        )}
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          onClick={() => setOpen((value) => !value)}
+          className="rounded-lg p-2 text-foreground transition-colors hover:bg-muted md:hidden"
+        >
+          {open ? <X className="size-4" /> : <Menu className="size-4" />}
+        </button>
       </div>
+
+      {open && (
+        <div id="mobile-navigation" className="mx-auto mt-2 flex max-w-4xl flex-col gap-1 rounded-2xl border border-border bg-background/95 p-2 shadow-xl backdrop-blur-xl md:hidden">
+          {links.map(([label, id]) => (
+            <button key={id} onClick={() => scrollTo(id)} className="rounded-xl px-4 py-3 text-left text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }

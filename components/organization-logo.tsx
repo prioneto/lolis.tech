@@ -9,10 +9,8 @@ interface OrganizationLogoProps {
 
 export function OrganizationLogo({ src, alt, className = "", tone = "light" }: OrganizationLogoProps) {
   return (
-    <div
-      className={`relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-border/60 shadow-sm sm:h-14 sm:w-14 ${tone === "dark" ? "bg-zinc-950" : "bg-white"} ${className}`}
-    >
-      <Image src={src} alt={`${alt} logo`} fill sizes="56px" className="object-contain p-2" />
+    <div className={`relative h-11 w-11 shrink-0 sm:h-12 sm:w-12 ${className}`}>
+      <Image src={src} alt={`${alt} logo`} fill sizes="48px" className={`object-contain ${tone === "dark" ? "invert" : ""}`} />
     </div>
   );
 }

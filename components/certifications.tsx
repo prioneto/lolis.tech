@@ -1,14 +1,5 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
-import { OrganizationLogo } from "./organization-logo";
 import { Calendar, ChevronDown, ExternalLink, GraduationCap, Trophy } from "lucide-react";
+import { OrganizationLogo } from "./organization-logo";
 
 interface PortfolioItem {
   title: string;
@@ -29,8 +20,7 @@ const credentials: PortfolioItem[] = [
     issuer: "EIT Digital Master School",
     logo: "/logos/eit-digital.png",
     date: "2025 – 2026",
-    description:
-      "Double-degree programme in cyber security, with the University of Twente as the entry university and the University of Trento as the exit university.",
+    description: "Double-degree programme in cyber security, with the University of Twente as the entry university and the University of Trento as the exit university.",
     status: "Completed",
     link: "https://www.utwente.nl/en/education/master/programmes/computer-science/specialisation/cyber-security/",
     linkLabel: "Visit programme",
@@ -40,8 +30,7 @@ const credentials: PortfolioItem[] = [
     issuer: "University of Twente",
     logo: "/logos/utwente.png",
     date: "2025 – 2027",
-    description:
-      "Master's programme focused on cyber security, secure systems, and software engineering.",
+    description: "Master's programme focused on cyber security, secure systems, and software engineering.",
     status: "Ongoing",
     link: "https://www.utwente.nl/en/education/master/programmes/computer-science/",
     linkLabel: "Visit programme",
@@ -51,8 +40,7 @@ const credentials: PortfolioItem[] = [
     issuer: "University of Twente",
     logo: "/logos/utwente.png",
     date: "2021 – 2025",
-    description:
-      "Completed a broad computer science and software engineering curriculum spanning systems, algorithms, and product development.",
+    description: "Completed a broad computer science and software engineering curriculum spanning systems, algorithms, and product development.",
     status: "Completed",
     grade: "7.4 / 10",
     link: "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/index.html",
@@ -63,8 +51,7 @@ const credentials: PortfolioItem[] = [
     issuer: "GitHub",
     logo: "/logos/github.png",
     date: "2024",
-    description:
-      "Validated foundational knowledge of Git, GitHub, repositories, collaboration, and modern development workflows.",
+    description: "Validated foundational knowledge of Git, GitHub, repositories, collaboration, and modern development workflows.",
     status: "Completed",
     link: "https://www.credly.com/badges/902c0a93-ead6-4cf5-9fa3-a98cbc22941a/public_url",
     linkLabel: "View credential",
@@ -77,8 +64,7 @@ const selectedAchievements: PortfolioItem[] = [
     issuer: "University of Twente",
     logo: "/logos/utwente.png",
     date: "2025",
-    description:
-      "Published research on automating user and infrastructure profiling from cyber leaks with large language models.",
+    description: "Published research on automating user and infrastructure profiling from cyber leaks with large language models.",
     status: "Published",
     link: "https://purl.utwente.nl/essays/107532",
     linkLabel: "Read publication",
@@ -88,8 +74,7 @@ const selectedAchievements: PortfolioItem[] = [
     issuer: "Medium",
     logo: "/logos/medium.png",
     date: "2024",
-    description:
-      "Documented a broken access-control vulnerability discovered in the Online Soccer Manager game.",
+    description: "Documented a broken access-control vulnerability discovered in the Online Soccer Manager game.",
     status: "Published",
     link: "https://medium.com/@prioneto/cracking-the-code-infinite-boss-coin-broken-access-control-exploit-93fd743e60d5",
     linkLabel: "Read article",
@@ -131,84 +116,33 @@ const moreAchievements: PortfolioItem[] = [
   },
 ];
 
-function statusClasses(status: PortfolioItem["status"]) {
-  if (status === "Ongoing") {
-    return "border-blue-500/30 bg-blue-500/10 text-blue-700";
-  }
-
-  if (status === "Published") {
-    return "border-violet-500/30 bg-violet-500/10 text-violet-700";
-  }
-
-  return "border-emerald-500/30 bg-emerald-500/10 text-emerald-700";
-}
-
-function ItemCard({ item }: { item: PortfolioItem }) {
+function PortfolioRow({ item, compact = false }: { item: PortfolioItem; compact?: boolean }) {
   return (
-    <Card className="group flex h-full flex-col border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-      <CardHeader className="space-y-0 p-5 sm:p-6">
-        <div className="flex items-start gap-3.5 sm:gap-4">
-          <OrganizationLogo src={item.logo} alt={item.issuer} tone={item.logoTone} />
-          <div className="min-w-0 flex-1">
-            <CardTitle className="text-balance text-lg leading-snug text-foreground">
-              {item.title}
-            </CardTitle>
-            <CardDescription className="mt-1 text-sm leading-snug text-muted-foreground">
-              {item.issuer}
-            </CardDescription>
-
-            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-muted-foreground sm:text-sm">
-              <Badge variant="outline" className={`rounded-full px-2.5 py-1 ${statusClasses(item.status)}`}>
-                {item.status}
-              </Badge>
-              <span className="inline-flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5" />
-                {item.date}
-              </span>
-              {item.grade && <span className="font-semibold text-primary">{item.grade}</span>}
-            </div>
-          </div>
-        </div>
-      </CardHeader>
-
-      <CardContent className="flex flex-1 flex-col px-5 pb-5 pt-0 sm:px-6 sm:pb-6">
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{item.description}</p>
-        {item.link && (
-          <Button asChild variant="outline" size="sm" className="mt-5 w-full sm:w-fit">
-            <a href={item.link} target="_blank" rel="noopener noreferrer">
-              {item.linkLabel ?? "View source"}
-              <ExternalLink className="h-4 w-4" />
-            </a>
-          </Button>
-        )}
-      </CardContent>
-    </Card>
-  );
-}
-
-function CompactItem({ item }: { item: PortfolioItem }) {
-  return (
-    <article className="flex items-start gap-3 rounded-xl border border-border/60 bg-background p-4">
-      <OrganizationLogo src={item.logo} alt={item.issuer} tone={item.logoTone} className="h-11 w-11 sm:h-11 sm:w-11" />
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-start justify-between gap-2">
+    <article className={`grid grid-cols-[auto_1fr] gap-4 border-t border-border ${compact ? "py-5" : "py-7"}`}>
+      <OrganizationLogo src={item.logo} alt={item.issuer} tone={item.logoTone} className={compact ? "h-10 w-10 sm:h-10 sm:w-10" : ""} />
+      <div className="min-w-0">
+        <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
           <div>
-            <h4 className="text-sm font-semibold leading-snug text-foreground">{item.title}</h4>
-            <p className="mt-0.5 text-xs text-muted-foreground">{item.issuer}</p>
+            <h4 className={`${compact ? "text-base" : "text-lg"} font-semibold leading-snug text-foreground`}>{item.title}</h4>
+            <p className="mt-1 text-sm text-muted-foreground">{item.issuer}</p>
           </div>
-          <span className="text-xs font-medium text-muted-foreground">{item.date}</span>
+          <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+            <span className="text-primary">{item.status}</span>
+            <span aria-hidden="true">/</span>
+            <span className="inline-flex items-center gap-1.5"><Calendar className="size-3" />{item.date}</span>
+          </div>
         </div>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-        {item.link && (
-          <a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
-          >
-            {item.linkLabel ?? "View source"} <ExternalLink className="h-3 w-3" />
-          </a>
-        )}
+
+        <p className={`leading-relaxed text-muted-foreground ${compact ? "mt-3 text-sm" : "mt-4 text-sm sm:text-base"}`}>{item.description}</p>
+        <div className="mt-3 flex items-center gap-4 text-xs font-semibold">
+          {item.grade && <span className="text-primary">{item.grade}</span>}
+          {item.link && (
+            <a href={item.link} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1.5 text-foreground transition-colors hover:text-primary">
+              {item.linkLabel ?? "View source"}
+              <ExternalLink className="size-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );
@@ -216,53 +150,42 @@ function CompactItem({ item }: { item: PortfolioItem }) {
 
 export function Certifications() {
   return (
-    <section id="certifications" className="bg-muted/30 py-16 sm:py-20">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-6xl">
-          <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-14">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Background</p>
-            <h2 className="text-balance text-4xl font-bold md:text-5xl">
-              Education & <span className="text-primary">Recognition</span>
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              The credentials and selected work most relevant to software engineering and cyber security.
-            </p>
-          </div>
+    <section id="certifications" className="border-b border-border bg-muted/40 py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="mb-12">
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.24em] text-primary">Background</p>
+          <h2 className="text-balance text-4xl font-bold tracking-[-0.04em] sm:text-6xl">Education & recognition.</h2>
+        </div>
 
-          <div className="mb-6 flex items-center gap-3">
-            <GraduationCap className="h-6 w-6 text-primary" />
+        <div className="mb-12">
+          <div className="mb-5 flex items-center gap-3">
+            <GraduationCap className="size-5 text-primary" />
             <h3 className="text-xl font-bold text-foreground sm:text-2xl">Education & credentials</h3>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-            {credentials.map((credential) => (
-              <ItemCard key={credential.title} item={credential} />
-            ))}
+          <div className="grid gap-x-10 md:grid-cols-2">
+            {credentials.map((item) => <PortfolioRow key={item.title} item={item} />)}
           </div>
+        </div>
 
-          <div className="mb-6 mt-12 flex items-center gap-3 sm:mt-14">
-            <Trophy className="h-6 w-6 text-primary" />
+        <div>
+          <div className="mb-5 flex items-center gap-3">
+            <Trophy className="size-5 text-primary" />
             <h3 className="text-xl font-bold text-foreground sm:text-2xl">Selected achievements</h3>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-            {selectedAchievements.map((achievement) => (
-              <ItemCard key={achievement.title} item={achievement} />
-            ))}
+          <div className="grid gap-x-10 md:grid-cols-2">
+            {selectedAchievements.map((item) => <PortfolioRow key={item.title} item={item} />)}
           </div>
 
-          <details className="group mt-6 overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 marker:content-none sm:p-6">
+          <details className="group border-y border-border">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 marker:content-none">
               <div>
                 <h3 className="font-semibold text-foreground">More achievements</h3>
                 <p className="mt-1 text-sm text-muted-foreground">Three earlier projects and awards</p>
               </div>
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border bg-background text-muted-foreground">
-                <ChevronDown className="h-4 w-4 transition-transform duration-200 group-open:rotate-180" />
-              </span>
+              <ChevronDown className="size-4 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
             </summary>
-            <div className="grid gap-3 border-t border-border/60 p-4 md:grid-cols-3 sm:p-5">
-              {moreAchievements.map((achievement) => (
-                <CompactItem key={achievement.title} item={achievement} />
-              ))}
+            <div className="grid gap-x-8 border-t border-border md:grid-cols-3">
+              {moreAchievements.map((item) => <PortfolioRow key={item.title} item={item} compact />)}
             </div>
           </details>
         </div>

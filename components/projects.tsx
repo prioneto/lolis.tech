@@ -1,119 +1,101 @@
-"use client";
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { Badge } from "../components/ui/badge";
-import { ExternalLink, Hammer } from "lucide-react";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+
+const projects = [
+  {
+    title: "Signalcase",
+    category: "Native product",
+    description: "A native macOS app that turns scattered logs into compact, evidence-backed bug cases. I built the complete product, from the SwiftUI client to its secure Next.js and Supabase backend.",
+    image: "/signalcase-app.png",
+    imageClass: "object-cover object-top",
+    visualClass: "bg-[#e8f4dc]",
+    chromeClass: "border-white/10 bg-[#111412] text-white/55",
+    technologies: ["SwiftUI", "Next.js", "Supabase"],
+    liveUrl: "https://signalcase.vercel.app",
+    sourceUrl: "https://github.com/prioneto/signalcase",
+  },
+  {
+    title: "FitRef",
+    category: "Web platform",
+    description: "A focused fitness-tracking experience that connects with Strava and presents activity data in a way that is easier to understand and act on.",
+    image: "/fitref.png",
+    imageClass: "object-cover object-top",
+    visualClass: "bg-[#e6eefc]",
+    chromeClass: "border-black/10 bg-white text-black/45",
+    technologies: ["Next.js", "TypeScript", "Supabase"],
+    liveUrl: "https://fitref.gr",
+  },
+  {
+    title: "Low Poly Racing",
+    category: "Independent game",
+    description: "An arcade racing game built in Unity, shaped around immediate handling, readable environments, and a playful low-poly visual language.",
+    image: "/lowpolyracing.png",
+    imageClass: "object-contain [image-rendering:auto]",
+    visualClass: "bg-[#dfe8d5]",
+    chromeClass: "border-white/10 bg-[#2b3337] text-white/55",
+    technologies: ["Unity", "C#"],
+    liveUrl: "https://prioneto-games.itch.io/low-poly-racing",
+  },
+];
 
 export function Projects() {
-  const projects = [
-    {
-      title: "Signalcase",
-      description: "My own product: a free, open-source native macOS app that turns logs from Supabase, Render, GitHub, and your application into compact, evidence-backed bug cases. Deterministic grouping — no AI account required. Built end-to-end: SwiftUI client, Next.js backend, Supabase with row-level security.",
-      image: "/signalcase-app.png",
-      technologies: ["SwiftUI", "Swift", "Next.js", "TypeScript", "Supabase"],
-      liveUrl: "https://signalcase.vercel.app",
-      ctaLabel: "Live demo",
-      demoUrl: "https://github.com/prioneto/signalcase",
-      demoLabel: "View source",
-    },
-    {
-      title: "FitRef",
-      description: "This project is a fitness-tracking web application that integrates the Strava API to display user activities.",
-      image: "/fitref.png",
-      technologies: ["Next.js", "TypeScript", "Tailwind", "Supabase"],
-      liveUrl: "https://fitref.gr",
-    },
-    {
-      title: "Low Poly Racing",
-      description: "Low Poly Racing is an arcade racing game I developed in Unity (C#) during summer 2020.",
-      image: "/lowpolyracing.png",
-      technologies: ["Unity", "C#"],
-      liveUrl: "https://prioneto-games.itch.io/low-poly-racing",
-    },
-  ];
-
   return (
-    <section id="projects" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance">
-            Featured <span className="text-primary hover:wiggle cursor-pointer">Projects</span>
-          </h2>
+    <section id="projects" className="border-b border-border bg-background py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="mb-14 border-b border-border pb-10">
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.24em] text-primary">Selected work</p>
+          <h2 className="text-balance text-4xl font-bold tracking-[-0.04em] sm:text-6xl">A few things I&apos;ve shipped.</h2>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="group flex h-full flex-col overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl playful-hover hover:rotate-1"
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                  borderColor: "oklch(0.92 0 0 / 0.5)",
-                }}
-              >
-                <div className="relative aspect-video overflow-hidden bg-foreground">
-                  <Image src={project.image} alt={project.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{
-                      background: "linear-gradient(to top, oklch(0.62 0.24 15 / 0.3), transparent)",
-                    }}
-                  />
+        <div>
+          {projects.map((project, index) => (
+            <article key={project.title} className="grid gap-8 border-b border-border py-10 first:pt-0 last:border-0 last:pb-0 md:grid-cols-2 md:items-center md:gap-12 lg:gap-20">
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={`group relative block aspect-[16/10] overflow-hidden rounded-2xl p-4 sm:p-6 ${project.visualClass} ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                <div className="relative h-full overflow-hidden rounded-xl border border-black/10 bg-[#2b3337] shadow-[0_22px_55px_rgba(35,25,25,0.18)] transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-[1.01]">
+                  <div className={`flex h-8 items-center justify-between border-b px-3 ${project.chromeClass}`}>
+                    <div className="flex gap-1.5" aria-hidden="true">
+                      <span className="size-1.5 rounded-full bg-current opacity-70" />
+                      <span className="size-1.5 rounded-full bg-current opacity-50" />
+                      <span className="size-1.5 rounded-full bg-current opacity-30" />
+                    </div>
+                    <span className="font-mono text-[8px] uppercase tracking-[0.16em]">{project.title}</span>
+                    <span className="w-6" aria-hidden="true" />
+                  </div>
+                  <div className="relative h-[calc(100%-2rem)] overflow-hidden">
+                    <Image src={project.image} alt={`${project.title} project preview`} fill sizes="(min-width: 768px) 50vw, 100vw" className={`${project.imageClass} transition-transform duration-500 group-hover:scale-[1.015]`} />
+                  </div>
+                </div>
+                <span className="absolute right-2 top-2 grid size-9 place-items-center rounded-full bg-background text-foreground shadow-md transition-colors group-hover:bg-primary group-hover:text-primary-foreground sm:right-4 sm:top-4">
+                  <ArrowUpRight className="size-4" />
+                </span>
+              </a>
+
+              <div className={index % 2 === 1 ? "md:order-1" : ""}>
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">0{index + 1} / {project.category}</p>
+                <h3 className="mt-3 text-3xl font-bold tracking-[-0.04em] text-foreground sm:text-4xl">{project.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{project.description}</p>
+
+                <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                  {project.technologies.map((technology) => <span key={technology}>{technology}</span>)}
                 </div>
 
-                <CardHeader className="flex-1 pb-5">
-                  <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
-                  <CardDescription className="text-muted-foreground leading-relaxed">{project.description}</CardDescription>
-                </CardHeader>
-
-                <CardContent className="mt-auto">
-                  <div className="mb-5 flex min-h-16 content-start flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="outline" className="text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer hover:scale-105">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  {project.liveUrl && project.liveUrl !== "#" ? (
-                    <div className="flex gap-2">
-                      <Button asChild size="sm" className="flex-1 playful-hover transition-all duration-300 hover:scale-[1.02]">
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
-                          {project.ctaLabel ?? "Live Demo"}
-                        </a>
-                      </Button>
-                      {project.demoUrl ? (
-                        <Button asChild size="sm" variant="outline" className="playful-hover transition-all duration-300 hover:scale-[1.02]">
-                          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                            {project.demoLabel ?? "Live demo"}
-                          </a>
-                        </Button>
-                      ) : null}
-                    </div>
-                  ) : (
-                    <Button size="sm" variant="outline" className="w-full text-muted-foreground" disabled>
-                      <Hammer className="h-4 w-4" />
-                      In development
-                    </Button>
+                <div className="mt-8 flex items-center gap-5 text-sm font-semibold">
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1.5 text-foreground transition-colors hover:text-primary">
+                    View project <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                  {project.sourceUrl && (
+                    <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">Source code</a>
                   )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
 
-          <div className="mt-12 flex justify-center">
-            <a
-              href="https://github.com/prioneto"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 playful-hover hover:scale-105"
-            >
-              For more projects, check my GitHub
-              <ExternalLink className="h-4 w-4" />
-            </a>
-          </div>
+        <div className="mt-14 flex justify-center">
+          <a href="https://github.com/prioneto" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary">
+            More work on GitHub <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </div>
       </div>
     </section>

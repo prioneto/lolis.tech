@@ -1,72 +1,35 @@
-"use client";
-
-import { Button } from "./ui/button";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 
 export function Contact() {
-  const handleEmailClick = () => {
-    const subject = encodeURIComponent("Hello from your portfolio!");
-    const body = encodeURIComponent("Hi Dimitris,\n\nI'd like to get in touch with you about...\n\nBest regards,");
-    const mailtoLink = `mailto:dimitrios@lolis.tech?subject=${subject}&body=${body}`;
-    window.open(mailtoLink, "_blank");
-  };
-
   return (
-    <section id="contact" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance">
-            Get In <span className="text-primary">Touch</span>
-          </h2>
+    <section id="contact" className="bg-background pt-20 sm:pt-28">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="grid gap-10 border-b border-border pb-20 sm:pb-28 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+          <div>
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.24em] text-primary">Get in touch</p>
+            <h2 className="max-w-3xl text-balance text-4xl font-bold leading-[0.98] tracking-[-0.05em] text-foreground sm:text-6xl">
+              Let&apos;s make something worth using.
+            </h2>
+          </div>
 
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-6 text-foreground">Let&apos;s work together</h3>
-            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-              I&apos;m always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
+          <div className="lg:justify-self-end">
+            <p className="max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Have a product idea, an engineering problem, or just want to compare notes? Send me a message.
             </p>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="flex flex-col items-center gap-4">
-                <div className="p-4 rounded-lg" style={{ backgroundColor: "oklch(0.62 0.24 15 / 0.1)" }}>
-                  <Mail className="h-8 w-8 text-primary" />
-                </div>
-                <div className="text-center">
-                  <h4 className="font-semibold text-foreground mb-2">Email</h4>
-                  <p className="text-muted-foreground">dimitrios@lolis.tech</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center gap-4">
-                <div className="p-4 rounded-lg" style={{ backgroundColor: "oklch(0.68 0.2 25 / 0.1)" }}>
-                  <Phone className="h-8 w-8 text-accent" />
-                </div>
-                <div className="text-center">
-                  <h4 className="font-semibold text-foreground mb-2">Phone</h4>
-                  <p className="text-muted-foreground">+31 0628510222</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center gap-4">
-                <div className="p-4 rounded-lg" style={{ backgroundColor: "oklch(0.68 0.2 25 / 0.1)" }}>
-                  <MapPin className="h-8 w-8 text-secondary" />
-                </div>
-                <div className="text-center">
-                  <h4 className="font-semibold text-foreground mb-2">Location</h4>
-                  <p className="text-muted-foreground">Enschede, Netherlands</p>
-                </div>
-              </div>
-            </div>
-
-            <Button
-              onClick={handleEmailClick}
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-4 text-lg playful-hover pulse-glow hover:scale-105 transition-all duration-300"
-            >
-              <Send className="mr-3 h-6 w-6" />
-              Send me an Email
-            </Button>
+            <a href="mailto:dimitrios@lolis.tech?subject=Hello%20from%20your%20portfolio" className="group mt-7 inline-flex items-center gap-2 border-b-2 border-primary pb-1 text-lg font-semibold text-foreground transition-colors hover:text-primary sm:text-xl">
+              dimitrios@lolis.tech
+              <ArrowUpRight className="size-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </div>
         </div>
+
+        <footer className="flex flex-col gap-4 py-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Dimitris Lolis</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <a href="mailto:dimitrios@lolis.tech" className="inline-flex items-center gap-2 transition-colors hover:text-primary"><Mail className="size-3.5" /> Email</a>
+            <span className="inline-flex items-center gap-2"><MapPin className="size-3.5" /> Enschede, Netherlands</span>
+          </div>
+        </footer>
       </div>
     </section>
   );

@@ -1,79 +1,66 @@
-import { Card, CardContent } from "./ui/card";
-import { Bike, Code2, ExternalLink, ShieldCheck } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-const highlights = [
+const perspectives = [
   {
+    number: "01",
     title: "Product engineering",
-    description: "Building and shipping web, mobile, and native products—from Stamina and Note-Bridge to Signalcase.",
-    icon: Code2,
+    description: "I turn ideas into focused web, mobile, and native products that are useful beyond the demo.",
   },
   {
+    number: "02",
     title: "Security & research",
-    description: "Studying cyber security, researching LLM-assisted cyber-leak analysis, and documenting real vulnerabilities.",
-    icon: ShieldCheck,
+    description: "I study how systems behave under pressure, from cyber-leak analysis to real-world vulnerabilities.",
   },
   {
+    number: "03",
     title: "Endurance & leadership",
-    description: "A committed triathlete, Aloha member, and former chair of the Gebouwenloop organising committee.",
-    icon: Bike,
+    description: "Triathlon, organising, and team leadership keep me comfortable with long horizons and hard problems.",
   },
 ];
 
 export function About() {
   return (
-    <section id="about" className="bg-muted/30 py-16 sm:py-20">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-10 text-center sm:mb-14">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">A little context</p>
-            <h2 className="text-balance text-4xl font-bold md:text-5xl">
-              About <span className="text-primary">Me</span>
-            </h2>
+    <section id="about" className="border-b border-border bg-muted/40 py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="border-b border-border pb-10">
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.24em] text-primary">A little context</p>
+          <h2 className="max-w-4xl text-balance text-4xl font-bold leading-[0.98] tracking-[-0.05em] sm:text-6xl lg:text-7xl">
+            Builder by instinct.<br /><span className="text-primary">Curious by default.</span>
+          </h2>
+        </div>
+
+        <div className="grid gap-14 pt-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+          <div>
+            <p className="border-l-2 border-primary pl-6 text-balance text-2xl font-semibold leading-snug tracking-[-0.03em] text-foreground sm:text-3xl">
+              I work where product engineering and security overlap.
+            </p>
+
+            <div className="mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              <p>
+                I&apos;m a Technical Computer Science graduate and Cyber Security MSc student at the University of Twente. I build useful software, investigate how systems behave, and turn what I learn into practical tools.
+              </p>
+              <p>
+                My path runs from product work at Stamina and Note-Bridge to LLM-assisted cyber-leak research and responsible vulnerability disclosure. Away from the screen, triathlon keeps me moving and has taught me how to lead, organise, and stay patient with difficult work.
+              </p>
+            </div>
+
+            <a href="https://www.linkedin.com/in/dimlol/" target="_blank" rel="noopener noreferrer" className="group mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors hover:text-primary">
+              More on LinkedIn
+              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </div>
 
-          <div className="grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-            <div>
-              <h3 className="text-balance text-2xl font-bold leading-tight text-foreground sm:text-3xl">
-                I build products—and I like understanding what happens when systems break.
-              </h3>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                I&apos;m a Technical Computer Science graduate and Cyber Security MSc student at the University of Twente. My work sits between product engineering and security: building useful software, investigating how systems behave, and turning what I learn into practical tools.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                That path has taken me from product work at Stamina and Note-Bridge to research on profiling cyber leaks with LLMs and the responsible disclosure of a broken access-control vulnerability in OSM. Outside software, triathlon keeps me moving and has given me opportunities to lead and organise within the Aloha community.
-              </p>
-
-              <a
-                href="https://www.linkedin.com/in/dimlol/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-              >
-                More on LinkedIn
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            </div>
-
-            <div className="grid gap-4">
-              {highlights.map(({ title, description, icon: Icon }) => (
-                <Card
-                  key={title}
-                  className="border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <CardContent className="p-5 sm:p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground">{title}</h4>
-                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground sm:text-base">{description}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          <div>
+            {perspectives.map((item) => (
+              <article key={item.number} className="grid grid-cols-[2.25rem_1fr] gap-4 border-t border-border py-6 first:border-t-0 first:pt-0">
+                <span className="font-mono text-[10px] tracking-[0.16em] text-primary">{item.number}</span>
+                <div>
+                  <h3 className="text-lg font-semibold tracking-[-0.02em] text-foreground">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">{item.description}</p>
+                </div>
+              </article>
+            ))}
+            <div className="border-t border-border" />
           </div>
         </div>
       </div>

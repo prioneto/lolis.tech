@@ -1,122 +1,49 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowDown, Download } from "lucide-react";
 import Image from "next/image";
+import { ArrowDownRight, Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useEffect, useState } from "react";
 
 export function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const scrollToProjects = () => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-card to-background">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"
-          style={{
-            left: mousePosition.x / 10,
-            top: mousePosition.y / 10,
-          }}
-        />
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-accent/10 rounded-full blur-2xl bounce-gentle" />
-        <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-secondary/10 rounded-full blur-xl animate-pulse" />
-      </div>
+    <section className="relative overflow-hidden border-b border-border bg-background pb-20 pt-32 sm:pb-28 sm:pt-40">
+      <div className="pointer-events-none absolute inset-0 opacity-60 [background-image:linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_88%)]" />
+      <div className="pointer-events-none absolute -right-32 top-10 size-[32rem] rounded-full bg-primary/[0.07] blur-3xl" />
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-8 flex justify-center">
-            <div className="relative group">
-              <div
-                className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 transition-all duration-300 playful-hover hover:scale-110 hover:rotate-3"
-                style={{ borderColor: "oklch(0.62 0.24 15 / 0.2)" }}
-              >
-                <Image src="/mugshot.jpeg" alt="Profile" width={160} height={160} priority className="w-full h-full object-cover" />
-              </div>
-              {/* Animated ring around image */}
-              <div
-                className="absolute inset-0 rounded-full border-2 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ borderColor: "oklch(0.62 0.24 15 / 0.3)" }}
-              ></div>
-            </div>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-            <span className="text-foreground">Code. Create.</span>
-            <br />
-            <span className="text-primary animate-pulse hover:wiggle cursor-pointer">Innovate.</span>
+      <div className="relative mx-auto grid max-w-6xl items-end gap-12 px-6 lg:grid-cols-[1fr_280px] lg:px-8">
+        <div className="max-w-4xl">
+          <p className="mb-6 font-mono text-xs uppercase tracking-[0.24em] text-primary">Dimitris Lolis / Developer</p>
+          <h1 className="max-w-4xl text-balance text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-foreground sm:text-7xl lg:text-8xl">
+            I build useful things for the <span className="text-primary">real world.</span>
           </h1>
-
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 text-pretty leading-relaxed">
-            Hey there! I&apos;m Dimitris, a Computer Science student and full-stack developer who turns coffee into code and ideas into digital experiences.
+          <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            Full-stack developer and cyber security student turning complex systems into focused products, tools, and experiences.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button
-              size="lg"
-              onClick={scrollToProjects}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg playful-hover pulse-glow hover:scale-105 transition-all duration-300"
-            >
-              View My Work
-              <ArrowDown className="ml-2 h-5 w-5 group-hover:animate-bounce" />
-            </Button>
-
-            <div className="flex gap-4">
-              <Button
-                variant="outline"
-                size="icon"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent playful-hover hover:rotate-12 transition-all duration-300"
-                onClick={() => window.open("https://github.com/prioneto", "_blank")}
-              >
-                <FaGithub className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent playful-hover hover:-rotate-12 transition-all duration-300"
-                style={{ animationDelay: "0.1s" }}
-                onClick={() => window.open("https://www.linkedin.com/in/dimlol/", "_blank")}
-              >
-                <FaLinkedin className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent playful-hover hover:rotate-12 transition-all duration-300"
-                style={{ animationDelay: "0.2s" }}
-                onClick={() => {
-                  const link = document.createElement("a");
-                  link.href = "/CV.pdf";
-                  link.download = "Dimitris_Lolis_CV.pdf";
-                  link.click();
-                }}
-              >
-                <Download className="h-5 w-5" />
-              </Button>
-            </div>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <button onClick={scrollToProjects} className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-transform hover:-translate-y-0.5">
+              Explore selected work
+              <ArrowDownRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+            </button>
+            <a href="/CV.pdf" download="Dimitris_Lolis_CV.pdf" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary">
+              <Download className="size-4" /> Résumé
+            </a>
           </div>
+        </div>
 
-          <div className="animate-bounce hover:animate-pulse cursor-pointer" onClick={scrollToProjects}>
-            <ArrowDown className="h-8 w-8 text-muted-foreground mx-auto hover:text-primary transition-colors duration-300" />
+        <div className="flex items-end gap-5 lg:flex-col lg:items-end">
+          <div className="relative size-28 overflow-hidden rounded-2xl border border-border bg-muted shadow-[0_16px_50px_rgba(35,15,15,0.12)] sm:size-36 lg:size-52">
+            <Image src="/mugshot.jpeg" alt="Portrait of Dimitris Lolis" fill priority sizes="(min-width: 1024px) 208px, 144px" className="object-cover" />
+          </div>
+          <div className="flex gap-2">
+            <a aria-label="GitHub" href="https://github.com/prioneto" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-background p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary"><FaGithub className="size-4" /></a>
+            <a aria-label="LinkedIn" href="https://www.linkedin.com/in/dimlol/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-background p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary"><FaLinkedin className="size-4" /></a>
           </div>
         </div>
       </div>
+
     </section>
   );
 }
