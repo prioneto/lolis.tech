@@ -15,6 +15,18 @@ const projects = [
     sourceUrl: "https://github.com/prioneto/signalcase",
   },
   {
+    title: "Houser",
+    category: "Open-source web app",
+    description: "A map-first rental finder that shows which homes are within reach of where you go every day, with the transit lines, parks and shops around them. Built on open map data, with a plug-in format for listings.",
+    image: "/houser.webp",
+    imageClass: "object-cover object-left-top",
+    visualClass: "bg-[#eceae4]",
+    chromeClass: "border-black/10 bg-[#fbf9f4] text-black/45",
+    technologies: ["React", "TypeScript", "MapLibre"],
+    liveUrl: "https://houser-sigma.vercel.app",
+    sourceUrl: "https://github.com/prioneto/houser-oss",
+  },
+  {
     title: "FitRef",
     category: "Web platform",
     description: "A focused fitness-tracking experience that connects with Strava and presents activity data in a way that is easier to understand and act on.",
@@ -24,18 +36,6 @@ const projects = [
     chromeClass: "border-black/10 bg-white text-black/45",
     technologies: ["Next.js", "TypeScript", "Supabase"],
     liveUrl: "https://fitref.gr",
-  },
-  {
-    title: "ClickShift",
-    category: "Native macOS utility",
-    description: "A lightweight macOS app that brings Zwift Click v2 virtual shifting to MyWhoosh, ROUVY, and other training apps, with app-safe shortcuts, custom mappings, gear steps, and automatic reconnect.",
-    image: "/clickshift-icon.png",
-    imageClass: "object-contain p-[18%]",
-    visualClass: "bg-[#f8ead8]",
-    chromeClass: "border-white/10 bg-[#20252c] text-white/55",
-    technologies: ["Swift", "SwiftUI", "Core Bluetooth"],
-    liveUrl: "https://click-shift.vercel.app",
-    sourceUrl: "https://github.com/prioneto/ClickShift",
   },
 ];
 
