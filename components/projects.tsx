@@ -4,9 +4,9 @@ import { ArrowUpRight } from "lucide-react";
 const projects = [
   {
     title: "Signalcase",
-    category: "Native product",
+    category: "Open-source macOS app",
     description: "A native macOS app that turns scattered logs into compact, evidence-backed bug cases. I built the complete product, from the SwiftUI client to its secure Next.js and Supabase backend.",
-    image: "/signalcase-app.png",
+    image: "/signalcase-app.webp",
     imageClass: "object-cover object-top",
     visualClass: "bg-[#e8f4dc]",
     chromeClass: "border-white/10 bg-[#111412] text-white/55",
