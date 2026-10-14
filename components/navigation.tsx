@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   ["Work", "projects"],
+  ["Writing", "writing"],
   ["About", "about"],
   ["Experience", "experience"],
   ["Contact", "contact"],

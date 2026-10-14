@@ -69,16 +69,6 @@ const selectedAchievements: PortfolioItem[] = [
     link: "https://purl.utwente.nl/essays/107532",
     linkLabel: "Read publication",
   },
-  {
-    title: "OSM Broken Access Control Exploit",
-    issuer: "Medium",
-    logo: "/logos/medium.png",
-    date: "2024",
-    description: "Documented a broken access-control vulnerability discovered in the Online Soccer Manager game.",
-    status: "Published",
-    link: "https://medium.com/@prioneto/cracking-the-code-infinite-boss-coin-broken-access-control-exploit-93fd743e60d5",
-    linkLabel: "Read article",
-  },
 ];
 
 const moreAchievements: PortfolioItem[] = [
