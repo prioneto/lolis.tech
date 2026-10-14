@@ -46,7 +46,7 @@ const writing: WritingItem[] = [
 
 export function Writing() {
   return (
-    <section id="writing" className="border-b border-border bg-background py-20 sm:py-24">
+    <section id="blog" className="border-b border-border bg-background py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="mb-10">
           <p className="mb-3 font-mono text-xs uppercase tracking-[0.24em] text-primary">Writing & research</p>
